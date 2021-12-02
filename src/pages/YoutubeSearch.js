@@ -3,8 +3,8 @@ import SearchBar from "../components/SearchBar";
 
 
 
-class YoutubePage extends React.Component {
-    render(){
+const YoutubePage =()=> {
+    
         return (
             <>
 <div>
@@ -14,7 +14,7 @@ class YoutubePage extends React.Component {
 
 </>
         );
-    }
+    
 }
 
 
