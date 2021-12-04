@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Link} from 'react-router-dom'
-import YoutubePage from "../pages/YoutubeSearch";
+import YoutubePage from "../pages/YoutubePage";
 import PhotoEngine from "../pages/PhotoEnginPage";
 import Home from "../pages/HomePage";
 
