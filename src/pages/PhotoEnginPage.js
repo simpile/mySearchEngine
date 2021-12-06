@@ -19,7 +19,7 @@ class PhotoEngine extends React.Component {
     render() {
         return (
             <>
-                <div style={{ margin: 10, }}>
+                <div className="ui container" style={{padding:12}}>
                     <SearchBar onSubmit={this.onSearchSubmit} />
                     <h3>   Found: {this.state.images.length} image</h3>
                     <ImageList images={this.state.images} />
