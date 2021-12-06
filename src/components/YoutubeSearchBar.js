@@ -13,7 +13,7 @@ class YoutubeSearch extends React.Component {
     }
     render() {
         return (
-            <div className="ui segment " style={{backgroundColor:"red"}}>
+            <div className="ui segment ">
                 <form
                     onSubmit={this.onInputSubmit}
                     className=" ui form">
