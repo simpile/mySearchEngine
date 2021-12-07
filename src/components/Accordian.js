@@ -24,14 +24,17 @@ const Accordian = ({ items}) => {
                         {item.title}
                     </div>
                     <div className={`content ${activeClass}`}>
-                      <p>{item.content}</p>  
+                    <span dangerouslySetInnerHTML={{ __html: item.snippet }}></span>
                     </div>
+                    <a
+                        href={`https://en.wikipedia.org?curid=${item.pageid}`}
+                        className={`content ui  ${activeClass}`}>read more..</a>
                 </React.Fragment >
             );
         }
     )
     return (
-        <div  className=" ui styled accordion">{renderItem}
+        <div  className=" ui styled accordion" style={{width:"100%"}}>{renderItem}
         {/* {activeIndex} */}
         </div >
 

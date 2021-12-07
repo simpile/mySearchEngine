@@ -33,26 +33,6 @@ const WikiSearch = () => {
 
 
 
-    const mapAndRender = result.map((item) => {
-        return (
-            <div key={item.pageid} className="item">
-                <div className="right floated content">
-                    <a
-                        href={`https://en.wikipedia.org?curid=${item.pageid}`}
-                        className="ui button">read more..</a>
-                </div>
-                <div className="cotent">
-                    <div className="header">
-                        <span dangerouslySetInnerHTML={{ __html: item.title }}></span>
-                    </div>
-                    <span dangerouslySetInnerHTML={{ __html: item.snippet }}></span>
-                </div>
-            </div>
-            // <>
-            // <Accordian title={item.title}  content={item.snippet}/>
-            // </>
-        );
-    })
     return (
         <>
             <div className="ui segment" style={{padding:12}}>
@@ -66,9 +46,10 @@ const WikiSearch = () => {
                         </div>
                 </form>
             </div>
-            <div className="ui called list">
-                {mapAndRender}
-            </div>
+         
+     
+            <Accordian items={result} />
+
         </>
     );
 }
