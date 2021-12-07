@@ -21,7 +21,7 @@ class PhotoEngine extends React.Component {
             <>
                 <div className="ui container" style={{padding:12}}>
                     <SearchBar onSubmit={this.onSearchSubmit} />
-                    <h3>   Found: {this.state.images.length} image</h3>
+                    {/* <h3>   Found: {this.state.images.length} image</h3> */}
                     <ImageList images={this.state.images} />
                 </div>
 

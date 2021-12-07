@@ -1,5 +1,6 @@
 import React from "react";
 import Accordian from "../components/Accordian";
+import WikiSearch from "../components/WikiSearch";
 
 const items=[
     {
@@ -16,8 +17,8 @@ const Home =()=>{
     
  return  ( <>
     <div className="ui container" style={{padding:12}}>
-        <h1>Home page </h1>
-    <Accordian items={items}/>
+        <WikiSearch/>
+    {/* <Accordian items={items}/> */}
     </div>
 </>);
 }

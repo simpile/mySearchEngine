@@ -18,7 +18,7 @@ class YoutubeSearch extends React.Component {
                     onSubmit={this.onInputSubmit}
                     className=" ui form">
                     <div className="field">
-                        <label for="myInput">Image Search</label>
+                        <label htmlFor="myInput">Youtube Search</label>
                         <input
                             name="myInput"
                             type="text"
