@@ -35,7 +35,7 @@ const WikiSearch = () => {
 
     return (
         <>
-            <div className="ui segment" style={{padding:12}}>
+            <div className="ui segment" >
                 <form className=" ui form">
                     <div className="field">
                     <label htmlFor="myInput"> WikiPedia Search</label>
