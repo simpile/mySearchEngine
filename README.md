@@ -1,10 +1,19 @@
-# Photo Search Engin
-* it may takes proxy if you are connectig from iran
-## Here I Use:
+#### this is a self training project based on react.js
+    here we have 4 different pages:
+# Home 
+1- wikipedia API
+2- Accordian Component
+# PhotoSearch
+1- unsplash API
+# YoutubeSearch
+1- youtube API 
+# translator
+(TBT)
 
-1- the semantic_ui library for styling.
-2- unsplas.js API for images
-3- axios package for getting datas
+## what else?
+1- semantic_ui library for styling.
+2- axios package for getting datas.
+3- React-Router for Navigating.
 
 
-* here i learn how to use async and await too
+
