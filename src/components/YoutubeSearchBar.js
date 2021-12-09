@@ -1,39 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 
-class YoutubeSearch extends React.Component {
-    state = { term: '' };
-    setOnCHange =(e)=>{
 
-    this.setState({ term: e.target.value });
-}
-    onInputSubmit = (e) => {
+export default function YoutubeSearchBar({ onFormSubmit }) {
+    const [term, setTerm] = useState('');
+
+    const onSubmit = (e) => {
         e.preventDefault();
-        // console.log(this.state.term);
-        this.props.onFormSubmit(this.state.term); // it's a callback function which useing in parrent component
+        onFormSubmit(term);
     }
-    render() {
-        return (
-            <div className="ui segment ">
-                <form
-                    onSubmit={this.onInputSubmit}
-                    className=" ui form">
-                    <div className="field">
-                        <label htmlFor="myInput">Youtube Search</label>
-                        <input
-                            name="myInput"
-                            type="text"
-                            value={this.state.term}
-                            onChange={
-                                // e => this.setState({ term: e.target.value })
-                                this.setOnCHange
-                            }
-                        />
-                    </div>
-                </form>
-            </div>
 
-        );
-
-    }
+    return (
+        <div className="ui segment ">
+            <form
+                onSubmit={onSubmit}
+                className=" ui form">
+                <div className="field">
+                    <label htmlFor="myInput">Youtube Search</label>
+                    <input
+                        name="myInput"
+                        type="text"
+                        value={term}
+                        onChange={(e)=>  setTerm(e.target.value) }
+                    />
+                </div>
+            </form>
+        </div>
+    )
 }
-export default YoutubeSearch;
+
+
+
