@@ -1,30 +1,17 @@
-import React from "react";
+import React, {useState , useEffect} from "react";
 import YoutubeSearch from "../components/YoutubeSearchBar";
 import youtubApi from "../api/youtube"
 import VideoList from "../components/VideoList";
 import VideoDetail from "../components/VideoDetail";
 
-class YoutubePage extends React.Component {
-    state = {
-        videos: [],
-        seleectedVideo: null,
 
-    };
+export default function YoutubePage() {
+    const[video, setVideo]=useState([]);
+    const[selectedVideo, setSelectedVideo]= useState(null);
 
-    componentDidMount(){
-        this.myCallBack('virals');
-    }
+    useEffect(()=>{myCallBack('virals');},[])// just once rendering becuse of []
 
-    // myCallBack = (term) => {
-    //     youtubApi.get('/search', {
-    //         params: {
-    //             q: term
-    //         }
-    //     });
-    //     console.log(term);
-    // };
-
-    myCallBack = async term => {
+   const myCallBack = async term => {
         const response = await youtubApi.get(
             '/search',
             {
@@ -33,39 +20,32 @@ class YoutubePage extends React.Component {
                 }
             }
         );
-        //    console.log(response.data.items);
-        this.setState({ videos: response.data.items,
-        seleectedVideo: response.data.items[0] });
+        // this.setState({ videos: response.data.items,     //CLASSCOMPONENT VS.
+        // seleectedVideo: response.data.items[0] });
+        setVideo(response.data.items);                      //FUNCTIONALCOMPONENT 
+        setSelectedVideo( response.data.items[0])
 
     }
-
-    onVideoSelect = (video, myDetails) => {
-        // console.log("my video",video)
-        this.setState({ seleectedVideo: video })
+    const onVideoSelect = (video) => {
+       setSelectedVideo (video);
     }
 
-    render() {
-        return (
-            <>
-                <div className="ui container" style={{padding:12}}>
-                    <YoutubeSearch onFormSubmit={this.myCallBack} />
+    return (
+        <div>
+            <div className="ui container" style={{padding:12}}>
+                    <YoutubeSearch onFormSubmit={myCallBack} />
                     <div className="ui grid">
                         <div className="ui row">
                             <div className="eleven wide column">
-                                <VideoDetail video={this.state.seleectedVideo} />
+                                <VideoDetail video={selectedVideo} />
                             </div >
                             <div className="five wide column">
-                                <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
+                                <VideoList onVideoSelect={onVideoSelect} videos={video} />
                             </div>
 
                         </div>
                     </div>
                 </div>
-
-            </>
-        );
-
-    }
+        </div>
+    )
 }
-
-export default YoutubePage;
