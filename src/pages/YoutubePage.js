@@ -9,7 +9,7 @@ export default function YoutubePage() {
     const[video, setVideo]=useState([]);
     const[selectedVideo, setSelectedVideo]= useState(null);
 
-    useEffect(()=>{myCallBack('virals');},[])// just once rendering becuse of []
+    useEffect(()=>{myCallBack('virals')},[])// just once rendering becuse of []
 
    const myCallBack = async term => {
         const response = await youtubApi.get(
@@ -25,10 +25,8 @@ export default function YoutubePage() {
         setVideo(response.data.items);                      //FUNCTIONALCOMPONENT 
         setSelectedVideo( response.data.items[0])
 
-    }
-    const onVideoSelect = (video) => {
-       setSelectedVideo (video);
-    }
+    };
+   
 
     return (
         <div>
@@ -40,7 +38,7 @@ export default function YoutubePage() {
                                 <VideoDetail video={selectedVideo} />
                             </div >
                             <div className="five wide column">
-                                <VideoList onVideoSelect={onVideoSelect} videos={video} />
+                                <VideoList onVideoSelect={setSelectedVideo} videos={video} />
                             </div>
 
                         </div>
